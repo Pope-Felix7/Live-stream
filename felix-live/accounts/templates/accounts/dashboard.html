@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – FELIX-LIVE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <header>
+        <h1>🎥 FELIX-LIVE</h1>
+        <span>Welcome, {{ user.username }}!</span>
+        <a href="{% url 'logout' %}" class="btn-secondary">Logout</a>
+      </header>
+      <main>
+        <div class="action-cards">
+          <div class="card">
+            <h2>New Meeting</h2>
+            <p>Start an instant meeting room.</p>
+            <a href="{% url 'create_room' %}" class="btn-primary"
+              >Create Room</a
+            >
+          </div>
+          <div class="card">
+            <h2>Join Meeting</h2>
+            <p>Enter a room code to join.</p>
+            <a href="{% url 'join_room' %}" class="btn-primary">Join Room</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ room.name }} – FELIX-LIVE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'meetings/css/room.css' %}" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="room-header">
+        <span class="room-title">🎥 {{ room.name }}</span>
+        <span class="room-code" title="Click to copy"
+          >Code: {{ room.code }}</span
+        >
+        <div class="controls">
+          <button id="btn-mic" class="ctrl-btn" title="Mute/Unmute">🎤</button>
+          <button id="btn-cam" class="ctrl-btn" title="Camera On/Off">
+            📷
+          </button>
+          <button id="btn-chat" class="ctrl-btn" title="Toggle Chat">💬</button>
+          <button id="btn-leave" class="ctrl-btn leave" title="Leave">
+            📴 Leave
+          </button>
+        </div>
+      </header>
+
+      <div class="main-area">
+        <div id="video-grid"></div>
+
+        <aside id="chat-panel">
+          <div class="chat-header">Chat</div>
+          <div id="chat-messages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Send a message…" />
+            <button id="chat-send">Send</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      const ROOM_CODE = "{{ room.code }}";
+      const USERNAME = "{{ request.user.username }}";
+    </script>
+    <script src="{% static 'meetings/js/room.js' %}"></script>
+  </body>
+</html>

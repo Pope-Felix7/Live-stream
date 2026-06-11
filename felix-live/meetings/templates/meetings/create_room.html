@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Create Room – FELIX-LIVE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <h1>🎥 FELIX-LIVE</h1>
+      <h2>Create a Meeting Room</h2>
+      <form method="post">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="name"
+          placeholder="Room name (e.g. Team Standup)"
+          required
+        />
+        <button type="submit">Create Room</button>
+      </form>
+      <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+    </div>
+  </body>
+</html>

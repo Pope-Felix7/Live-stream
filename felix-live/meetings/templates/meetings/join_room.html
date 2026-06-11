@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Join Room – FELIX-LIVE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <h1>🎥 FELIX-LIVE</h1>
+      <h2>Join a Meeting</h2>
+      <form method="post">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="code"
+          placeholder="Paste room code here"
+          required
+        />
+        <button type="submit">Join Room</button>
+      </form>
+      <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+    </div>
+  </body>
+</html>
