@@ -4,3 +4,6 @@ channels-redis>=4.0
 daphne>=4.0
 redis>=4.0
 requests>=2.28
+psycopg2-binary>=2.9
+whitenoise>=6.0
+gunicorn>=22.0
